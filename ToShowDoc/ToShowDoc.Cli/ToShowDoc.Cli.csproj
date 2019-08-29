@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>toshowdoc</ToolCommandName>
+    <PackageOutputPath>./nupkg</PackageOutputPath>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ToShowdoc.Core\ToShowDoc.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.3.4" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
+  </ItemGroup>
+
+</Project>
