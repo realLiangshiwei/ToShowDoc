@@ -5,8 +5,12 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
 
     <PackAsTool>true</PackAsTool>
-    <ToolCommandName>toshowdoc</ToolCommandName>
     <PackageOutputPath>./nupkg</PackageOutputPath>
+    <PackageId>ToShowDoc</PackageId>
+    <Authors>ToShowDoc</Authors>
+    <Product>ToShowDoc</Product>
+    <AssemblyName>ToShowDoc</AssemblyName>
+    <RootNamespace>ToShowDoc</RootNamespace>
 
   </PropertyGroup>
 

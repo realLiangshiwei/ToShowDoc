@@ -1,7 +1,8 @@
-﻿using McMaster.Extensions.CommandLineUtils;
+﻿using System;
+using McMaster.Extensions.CommandLineUtils;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace ToShowDoc.Cli
+namespace ToShowDoc
 {
     class Program
     {
@@ -16,8 +17,16 @@ namespace ToShowDoc.Cli
             app.Conventions
                 .UseDefaultConventions()
                 .UseConstructorInjection(services);
+            try
+            {
+                return app.Execute(args);
+            }
+            catch (UnrecognizedCommandParsingException)
+            {
 
-            return app.Execute(args);
+                return 0;
+            }
+
         }
 
     }
