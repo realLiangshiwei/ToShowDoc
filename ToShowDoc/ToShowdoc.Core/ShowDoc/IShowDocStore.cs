@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using ToShowDoc.Core.Config;
+using ToShowDoc.Core.Entity;
 
 namespace ToShowDoc.Core.ShowDoc
 {
     public interface IShowDocStore
     {
-        Task AddShowDocProject(ShowDocProject project);
+        Task<ShowDocEntity> AddShowDoc(ShowDocEntity entity);
 
-        Task UpdateShowDocProject(ShowDocProject project);
+        Task UpdateShowDoc(ShowDocEntity entity);
 
-        Task<List<ShowDocProject>> GetAll();
+        Task<List<ShowDocEntity>> GetAll();
 
-        Task DeleteShowDocProject(int id);
+        Task DeleteShowDoc(int id);
     }
 }

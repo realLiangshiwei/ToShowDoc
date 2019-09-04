@@ -7,6 +7,7 @@ namespace ToShowDoc
     [Command(Name = "ToShowDoc", Description = "ToShowDoc CLI Tool")]
     [HelpOption("-h|--help")]
     [Subcommand(typeof(AddCommand))]
+    [Subcommand(typeof(ListCommand))]
     public class App
     {
 

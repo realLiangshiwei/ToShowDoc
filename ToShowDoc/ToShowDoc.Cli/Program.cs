@@ -1,6 +1,6 @@
-﻿using System;
-using McMaster.Extensions.CommandLineUtils;
+﻿using McMaster.Extensions.CommandLineUtils;
 using Microsoft.Extensions.DependencyInjection;
+using ToShowDoc.Core;
 
 namespace ToShowDoc
 {
@@ -10,6 +10,7 @@ namespace ToShowDoc
         {
             var services = new ServiceCollection()
                 .AddSingleton(PhysicalConsole.Singleton)
+                .AddShowDocCore()
                 .BuildServiceProvider();
 
             var app = new CommandLineApplication<App>();

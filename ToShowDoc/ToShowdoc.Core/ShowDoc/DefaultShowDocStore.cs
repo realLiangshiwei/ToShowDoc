@@ -1,40 +1,64 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ToShowDoc.Core.Config;
+using ToShowDoc.Core.Entity;
 
 namespace ToShowDoc.Core.ShowDoc
 {
     public class DefaultShowDocStore : IShowDocStore
     {
-        private readonly List<ShowDocProject> _docProjects;
+        private readonly List<ShowDocEntity> _data;
 
-        public DefaultShowDocStore()
+        private readonly IShowDocDataProvider _dataProvider;
+
+        public DefaultShowDocStore(IShowDocDataProvider dataProvider)
         {
-            _docProjects = new List<ShowDocProject>();
+            _dataProvider = dataProvider;
+            _data = new List<ShowDocEntity>();
         }
 
-        public Task AddShowDocProject(ShowDocProject project)
+        public async Task<ShowDocEntity> AddShowDoc(ShowDocEntity entity)
         {
-            _docProjects.Add(project);
-            return Task.CompletedTask;
+            await LoadData();
+            if (!_data.Any())
+            {
+                entity.Id = 1;
+            }
+            else
+            {
+                entity.Id = _data.Max(x => x.Id) + 1;
+            }
+
+            _data.Add(entity);
+            await _dataProvider.SaveChanges(_data);
+            return entity;
         }
 
-        public Task UpdateShowDocProject(ShowDocProject project)
+        public async Task UpdateShowDoc(ShowDocEntity entity)
         {
-            _docProjects.RemoveAll(x => x.Id == project.Id);
-            _docProjects.Add(project);
-            return Task.CompletedTask;
+            await LoadData();
+            _data.RemoveAll(x => x.Id == entity.Id);
+            _data.Add(entity);
+            await _dataProvider.SaveChanges(_data);
         }
 
-        public Task<List<ShowDocProject>> GetAll()
+        public async Task<List<ShowDocEntity>> GetAll()
         {
-            return Task.FromResult(_docProjects);
+            await LoadData();
+            return _data;
         }
 
-        public Task DeleteShowDocProject(int id)
+        public async Task DeleteShowDoc(int id)
         {
-            return Task.FromResult(_docProjects.FirstOrDefault(x => x.Id == id));
+            await LoadData();
+            _data.RemoveAll(x => x.Id == id);
+            await _dataProvider.SaveChanges(_data);
+        }
+
+        private async Task LoadData()
+        {
+            if (_data.Count == 0)
+                _data.AddRange(await _dataProvider.LoadData());
         }
     }
 }

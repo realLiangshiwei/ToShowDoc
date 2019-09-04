@@ -1,5 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils;
+using ToShowDoc.Core.Entity;
+using ToShowDoc.Core.ShowDoc;
 
 namespace ToShowDoc.Commands
 {
@@ -7,6 +11,13 @@ namespace ToShowDoc.Commands
     [HelpOption("-h|--help")]
     public class AddCommand
     {
+        private readonly IShowDocStore _showDocStore;
+
+        public AddCommand(IShowDocStore showDocStore)
+        {
+            _showDocStore = showDocStore;
+        }
+
         [Required]
         [Option("-n|--name", CommandOptionType.SingleValue, Description = "Project Name")]
         public string Name { get; set; }
@@ -27,9 +38,17 @@ namespace ToShowDoc.Commands
         [Option("-sdu|--ShowDocUrl", CommandOptionType.SingleValue, Description = "ShowDocUrl Name")]
         public string ShowDocUrl { get; set; }
 
-        public void OnExecute(CommandLineApplication app)
+        public async Task OnExecute(CommandLineApplication app)
         {
-            
+            await _showDocStore.AddShowDoc(new ShowDocEntity
+            {
+                AppKey = ApiKey,
+                AppToken = ApiToken,
+                Name = Name,
+                ShowDocUrl = ShowDocUrl,
+                SwaggerUrl = SwaggerUrl
+            });
+            Console.WriteLine("Add done...");
         }
     }
 }
