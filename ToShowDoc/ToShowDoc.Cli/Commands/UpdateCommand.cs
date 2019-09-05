@@ -3,18 +3,17 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils;
-using ToShowDoc.Core.Entity;
 using ToShowDoc.Core.ShowDoc;
 
 namespace ToShowDoc.Commands
 {
-    [Command(Name = "a", FullName = "add", Description = "add project")]
+    [Command(Name = "upd", FullName = "update", Description = "update project")]
     [HelpOption("-h|--help")]
-    public class AddCommand
+    public class UpdateCommand
     {
         private readonly IShowDocStore _showDocStore;
 
-        public AddCommand(IShowDocStore showDocStore)
+        public UpdateCommand(IShowDocStore showDocStore)
         {
             _showDocStore = showDocStore;
         }
@@ -39,22 +38,25 @@ namespace ToShowDoc.Commands
         [Option("-sdu|--ShowDocUrl", CommandOptionType.SingleValue, Description = "ShowDocUrl Name")]
         public string ShowDocUrl { get; set; }
 
+
         public async Task OnExecute(CommandLineApplication app)
         {
-            if ((await _showDocStore.GetAll()).Any(x => x.Name == Name))
+            var showDoc = (await _showDocStore.GetAll()).FirstOrDefault(x => x.Name == Name);
+
+            if (showDoc == null)
             {
-                Console.WriteLine($"Project {Name} already exists");
+                Console.WriteLine($"Not Found Project {Name}");
                 return;
             }
-            await _showDocStore.AddShowDoc(new ShowDocEntity
-            {
-                AppKey = ApiKey,
-                AppToken = ApiToken,
-                Name = Name,
-                ShowDocUrl = ShowDocUrl,
-                SwaggerUrl = SwaggerUrl
-            });
-            Console.WriteLine("Add done...");
+
+            showDoc.Name = Name;
+            showDoc.AppKey = ApiKey;
+            showDoc.AppToken = ApiToken;
+            showDoc.ShowDocUrl = ShowDocUrl;
+            showDoc.SwaggerUrl = SwaggerUrl;
+
+            await _showDocStore.UpdateShowDoc(showDoc);
+            Console.WriteLine("Update Success");
         }
     }
 }

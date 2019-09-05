@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using ToShowDoc.Core.Entity;
 
@@ -13,5 +15,7 @@ namespace ToShowDoc.Core.ShowDoc
         Task<List<ShowDocEntity>> GetAll();
 
         Task DeleteShowDoc(int id);
+
+        Task DeleteShowDoc(Expression<Func<ShowDocEntity, bool>> predicate);
     }
 }

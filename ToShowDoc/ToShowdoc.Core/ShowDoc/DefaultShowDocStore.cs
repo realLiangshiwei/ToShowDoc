@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using ToShowDoc.Core.Entity;
 
@@ -52,6 +54,13 @@ namespace ToShowDoc.Core.ShowDoc
         {
             await LoadData();
             _data.RemoveAll(x => x.Id == id);
+            await _dataProvider.SaveChanges(_data);
+        }
+
+        public async Task DeleteShowDoc(Expression<Func<ShowDocEntity, bool>> predicate)
+        {
+            await LoadData();
+            var showDoc = _data.FirstOrDefault(predicate.Compile());
             await _dataProvider.SaveChanges(_data);
         }
 
