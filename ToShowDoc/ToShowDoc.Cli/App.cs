@@ -8,6 +8,9 @@ namespace ToShowDoc
     [HelpOption("-h|--help")]
     [Subcommand(typeof(AddCommand))]
     [Subcommand(typeof(ListCommand))]
+    [Subcommand(typeof(UpdateCommand))]
+    [Subcommand(typeof(DeleteCommand))]
+    [Subcommand(typeof(SyncCommand))]
     public class App
     {
 

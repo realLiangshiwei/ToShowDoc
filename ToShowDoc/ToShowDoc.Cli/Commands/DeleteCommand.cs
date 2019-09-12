@@ -8,7 +8,7 @@ namespace ToShowDoc.Commands
 {
     [Command(Name = "del", FullName = "delete", Description = "delete project")]
     [HelpOption("-h|--help")]
-    public class RemoveCommand
+    public class DeleteCommand
     {
         [Required]
         [Option("-n|--name", CommandOptionType.SingleValue, Description = "Project Name")]
@@ -16,7 +16,7 @@ namespace ToShowDoc.Commands
 
         private readonly IShowDocStore _showDocStore;
 
-        public RemoveCommand(IShowDocStore showDocStore)
+        public DeleteCommand(IShowDocStore showDocStore)
         {
             _showDocStore = showDocStore;
         }
