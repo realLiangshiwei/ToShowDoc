@@ -6,7 +6,7 @@ using ToShowDoc.Core.ShowDoc;
 
 namespace ToShowDoc.Commands
 {
-    [Command(Name = "del", FullName = "delete", Description = "delete project")]
+    [Command(Name = "del", Description = "delete project")]
     [HelpOption("-h|--help")]
     public class DeleteCommand
     {

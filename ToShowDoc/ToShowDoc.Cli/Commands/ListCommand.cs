@@ -6,7 +6,7 @@ using ToShowDoc.Core.ShowDoc;
 
 namespace ToShowDoc.Commands
 {
-    [Command(Name = "l", FullName = "list", Description = "show all project")]
+    [Command(Name = "list", Description = "show all project")]
     [HelpOption("-h|--help")]
     public class ListCommand
     {

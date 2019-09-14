@@ -7,7 +7,7 @@ using ToShowDoc.Core.ShowDoc;
 
 namespace ToShowDoc.Commands
 {
-    [Command(Name = "upd", FullName = "update", Description = "update project")]
+    [Command(Name = "update", Description = "update project")]
     [HelpOption("-h|--help")]
     public class UpdateCommand
     {
