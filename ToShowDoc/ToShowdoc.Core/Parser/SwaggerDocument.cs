@@ -63,6 +63,8 @@ namespace ToShowDoc.Core.Parser
             public string[] Tags { get; set; }
             public string OperationId { get; set; }
 
+            public string Summary { get; set; }
+
             public List<dynamic> Parameters { get; set; }
 
             public dynamic Responses { get; set; }
