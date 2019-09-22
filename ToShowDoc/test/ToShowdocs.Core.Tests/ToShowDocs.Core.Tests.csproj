@@ -21,6 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="MdTemplate.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="swaggerDocs.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

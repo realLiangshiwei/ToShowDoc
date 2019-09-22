@@ -65,9 +65,45 @@ namespace ToShowDoc.Core.Parser
 
             public string Summary { get; set; }
 
-            public List<dynamic> Parameters { get; set; }
+            public List<ApiParameter> Parameters { get; set; }
 
-            public dynamic Responses { get; set; }
+            public Dictionary<string, ApiResponse> Responses { get; set; }
+
+            public class ApiParameter
+            {
+                public string @In { get; set; }
+
+                public string Name { get; set; }
+
+                public bool Required { get; set; }
+
+                public string Type { get; set; }
+
+                public string Description { get; set; }
+                public ParameterSchema Schema { get; set; }
+
+                public class ParameterSchema
+                {
+                    public string Ref { get; set; }
+                }
+            }
+
+            public class ApiResponse
+            {
+                public string Description { get; set; }
+
+                public ResponseSchema Schema { get; set; }
+
+
+                public class ResponseSchema
+                {
+                    public string Ref { get; set; }
+
+                    public string Type { get; set; }
+                }
+
+               
+            }
 
         }
     }

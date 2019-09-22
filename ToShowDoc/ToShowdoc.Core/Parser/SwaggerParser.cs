@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using Microsoft.OpenApi.Models;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace ToShowDoc.Core.Parser
 {
@@ -11,6 +6,10 @@ namespace ToShowDoc.Core.Parser
     {
         public static SwaggerDocument ParseString(string str)
         {
+            str = str.Replace("$ref", "ref");
+            str = str.Replace("\"200\":", "\"Success\":");
+            str = str.Replace("\"401\":", "\"Unauthorized\":");
+            str = str.Replace("\"403\":", "\"Forbidden\":");
             return JsonConvert.DeserializeObject<SwaggerDocument>(str);
         }
     }

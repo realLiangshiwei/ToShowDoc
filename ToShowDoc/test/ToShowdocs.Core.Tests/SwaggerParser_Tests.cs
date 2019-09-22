@@ -31,6 +31,9 @@ namespace ToShowDocs.Core.Tests
 
             _document.Definitions["IsTenantAvailableOutput"].Properties["state"].Enum.Length.ShouldBe(3);
             _document.Definitions["IsTenantAvailableOutput"].Properties["state"].Type.ShouldBe("integer");
+
+
+            var request= _document.ToShowDocRequest();
         }
 
         [Fact]
@@ -44,13 +47,15 @@ namespace ToShowDocs.Core.Tests
             _document.Paths["/api/TokenAuth/Authenticate"].Post.OperationId.ShouldBe("Authenticate");
 
             _document.Paths["/api/TokenAuth/Authenticate"].Post.Parameters.Count.ShouldBe(1);
-            ((string)_document.Paths["/api/TokenAuth/Authenticate"].Post.Parameters.First().@in).ShouldBe("body");
-            ((string)_document.Paths["/api/TokenAuth/Authenticate"].Post.Parameters.First().name).ShouldBe("model");
-            ((bool)_document.Paths["/api/TokenAuth/Authenticate"].Post.Parameters.First().required).ShouldBe(false);
-            ((string)_document.Paths["/api/TokenAuth/Authenticate"].Post.Parameters.First().schema["$ref"]).ShouldBe("#/definitions/AuthenticateModel");
 
-            string des = _document.Paths["/api/TokenAuth/Authenticate"].Post.Responses["200"].description.ToString();
-            string @ref = _document.Paths["/api/TokenAuth/Authenticate"].Post.Responses["200"].schema["$ref"].ToString();
+            _document.Paths["/api/TokenAuth/Authenticate"].Post.Parameters.First().In.ShouldBe("body");
+
+            _document.Paths["/api/TokenAuth/Authenticate"].Post.Parameters.First().Name.ShouldBe("model");
+            _document.Paths["/api/TokenAuth/Authenticate"].Post.Parameters.First().Required.ShouldBe(false);
+            _document.Paths["/api/TokenAuth/Authenticate"].Post.Parameters.First().Schema.Ref.ShouldBe("#/definitions/AuthenticateModel");
+
+            string des = _document.Paths["/api/TokenAuth/Authenticate"].Post.Responses["Success"].Description;
+            string @ref = _document.Paths["/api/TokenAuth/Authenticate"].Post.Responses["Success"].Schema.Ref;
             des.ShouldBe("Success");
             @ref.ShouldBe("#/definitions/AuthenticateResultModel");
         }
