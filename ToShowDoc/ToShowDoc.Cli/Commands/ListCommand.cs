@@ -27,6 +27,7 @@ namespace ToShowDoc.Commands
                 {
                     Console.WriteLine(docEntity.Name);
                     Console.WriteLine($"-------- Id : {docEntity.Id}");
+                    Console.WriteLine($"-------- Name : {docEntity.Name}");
                     Console.WriteLine($"-------- ApiKey : {docEntity.AppKey}");
                     Console.WriteLine($"-------- ApiToken : {docEntity.AppToken}");
                     Console.WriteLine($"-------- SwaggerUrl : {docEntity.SwaggerUrl}");
