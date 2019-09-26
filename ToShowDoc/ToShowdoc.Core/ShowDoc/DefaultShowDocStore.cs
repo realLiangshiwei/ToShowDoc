@@ -61,6 +61,7 @@ namespace ToShowDoc.Core.ShowDoc
         {
             await LoadData();
             var showDoc = _data.FirstOrDefault(predicate.Compile());
+            _data.Remove(showDoc);
             await _dataProvider.SaveChanges(_data);
         }
 

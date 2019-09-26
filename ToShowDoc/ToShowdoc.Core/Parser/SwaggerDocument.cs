@@ -19,6 +19,8 @@ namespace ToShowDoc.Core.Parser
 
         public class SwaggerDefinitionProperty
         {
+            public string Ref { get; set; }
+
             public string Type { get; set; }
 
             public int MaxLength { get; set; }
@@ -42,6 +44,8 @@ namespace ToShowDoc.Core.Parser
             public class PropertyItems
             {
                 public string Type { get; set; }
+
+                public string Ref { get; set; }
             }
         }
     }
@@ -102,7 +106,7 @@ namespace ToShowDoc.Core.Parser
                     public string Type { get; set; }
                 }
 
-               
+
             }
 
         }

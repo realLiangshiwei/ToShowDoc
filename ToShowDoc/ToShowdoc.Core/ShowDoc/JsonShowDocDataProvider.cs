@@ -42,16 +42,11 @@ namespace ToShowDoc.Core.ShowDoc
             }
         }
 
-        private async Task WriteTextAsync(string filePath, string text)
+        private Task WriteTextAsync(string filePath, string text)
         {
-            var encodedText = Encoding.UTF8.GetBytes(text);
+            File.WriteAllText(filePath, text);
 
-            using (var sourceStream = new FileStream(filePath,
-                FileMode.OpenOrCreate, FileAccess.Write, FileShare.None,
-                4096, true))
-            {
-                await sourceStream.WriteAsync(encodedText, 0, encodedText.Length);
-            };
+            return Task.CompletedTask;
         }
     }
 }

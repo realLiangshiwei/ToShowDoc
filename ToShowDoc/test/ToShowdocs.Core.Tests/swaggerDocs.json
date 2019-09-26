@@ -1,4 +1,4 @@
-{
+﻿{
   "swagger": "2.0",
   "info": {
     "version": "v1",
@@ -16,17 +16,13 @@
             "name": "input",
             "in": "body",
             "required": false,
-            "schema": {
-              "$ref": "#/definitions/IsTenantAvailableInput"
-            }
+            "schema": { "$ref": "#/definitions/IsTenantAvailableInput" }
           }
         ],
         "responses": {
           "200": {
             "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/IsTenantAvailableOutput"
-            }
+            "schema": { "$ref": "#/definitions/IsTenantAvailableOutput" }
           }
         }
       }
@@ -42,50 +38,15 @@
             "name": "input",
             "in": "body",
             "required": false,
-            "schema": {
-              "$ref": "#/definitions/RegisterInput"
-            }
+            "schema": { "$ref": "#/definitions/RegisterInput" }
           }
         ],
         "responses": {
           "200": {
             "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/RegisterOutput"
-            }
+            "schema": { "$ref": "#/definitions/RegisterOutput" }
           }
         }
-      }
-    },
-    "/api/services/app/Configuration/ChangeUiTheme": {
-      "post": {
-        "tags": [ "Configuration : " ],
-        "operationId": "ChangeUiTheme",
-        "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
-        "produces": [],
-        "parameters": [
-          {
-            "name": "input",
-            "in": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/ChangeUiThemeInput"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
       }
     },
     "/api/services/app/Role/Create": {
@@ -99,30 +60,18 @@
             "name": "input",
             "in": "body",
             "required": false,
-            "schema": {
-              "$ref": "#/definitions/CreateRoleDto"
-            }
+            "schema": { "$ref": "#/definitions/CreateRoleDto" }
           }
         ],
         "responses": {
           "200": {
             "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/RoleDto"
-            }
+            "schema": { "$ref": "#/definitions/RoleDto" }
           },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
         },
-        "security": [
-          {
-            "bearerAuth": [ "Pages.Roles" ]
-          }
-        ]
+        "security": [ { "bearerAuth": [ "Pages.Roles" ] } ]
       }
     },
     "/api/services/app/Role/GetRolesAsync": {
@@ -142,22 +91,12 @@
         "responses": {
           "200": {
             "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/ListResultDto[RoleListDto]"
-            }
+            "schema": { "$ref": "#/definitions/ListResultDto[RoleListDto]" }
           },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
         },
-        "security": [
-          {
-            "bearerAuth": [ "Pages.Roles" ]
-          }
-        ]
+        "security": [ { "bearerAuth": [ "Pages.Roles" ] } ]
       }
     },
     "/api/services/app/Role/Update": {
@@ -171,30 +110,18 @@
             "name": "input",
             "in": "body",
             "required": false,
-            "schema": {
-              "$ref": "#/definitions/RoleDto"
-            }
+            "schema": { "$ref": "#/definitions/RoleDto" }
           }
         ],
         "responses": {
           "200": {
             "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/RoleDto"
-            }
+            "schema": { "$ref": "#/definitions/RoleDto" }
           },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
         },
-        "security": [
-          {
-            "bearerAuth": [ "Pages.Roles" ]
-          }
-        ]
+        "security": [ { "bearerAuth": [ "Pages.Roles" ] } ]
       }
     },
     "/api/services/app/Role/Delete": {
@@ -213,21 +140,11 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
+          "200": { "description": "Success" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
         },
-        "security": [
-          {
-            "bearerAuth": [ "Pages.Roles" ]
-          }
-        ]
+        "security": [ { "bearerAuth": [ "Pages.Roles" ] } ]
       }
     },
     "/api/services/app/Role/GetAllPermissions": {
@@ -240,22 +157,12 @@
         "responses": {
           "200": {
             "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/ListResultDto[PermissionDto]"
-            }
+            "schema": { "$ref": "#/definitions/ListResultDto[PermissionDto]" }
           },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
         },
-        "security": [
-          {
-            "bearerAuth": [ "Pages.Roles" ]
-          }
-        ]
+        "security": [ { "bearerAuth": [ "Pages.Roles" ] } ]
       }
     },
     "/api/services/app/Role/GetRoleForEdit": {
@@ -276,22 +183,12 @@
         "responses": {
           "200": {
             "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/GetRoleForEditOutput"
-            }
+            "schema": { "$ref": "#/definitions/GetRoleForEditOutput" }
           },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
         },
-        "security": [
-          {
-            "bearerAuth": [ "Pages.Roles" ]
-          }
-        ]
+        "security": [ { "bearerAuth": [ "Pages.Roles" ] } ]
       }
     },
     "/api/services/app/Role/Get": {
@@ -312,9 +209,7 @@
         "responses": {
           "200": {
             "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/RoleDto"
-            }
+            "schema": { "$ref": "#/definitions/RoleDto" }
           }
         }
       }
@@ -354,9 +249,7 @@
         "responses": {
           "200": {
             "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/PagedResultDto[RoleDto]"
-            }
+            "schema": { "$ref": "#/definitions/PagedResultDto[RoleDto]" }
           }
         }
       }
@@ -371,9 +264,7 @@
         "responses": {
           "200": {
             "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/GetCurrentLoginInformationsOutput"
-            }
+            "schema": { "$ref": "#/definitions/GetCurrentLoginInformationsOutput" }
           }
         }
       }
@@ -389,30 +280,18 @@
             "name": "input",
             "in": "body",
             "required": false,
-            "schema": {
-              "$ref": "#/definitions/CreateTenantDto"
-            }
+            "schema": { "$ref": "#/definitions/CreateTenantDto" }
           }
         ],
         "responses": {
           "200": {
             "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/TenantDto"
-            }
+            "schema": { "$ref": "#/definitions/TenantDto" }
           },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
         },
-        "security": [
-          {
-            "bearerAuth": [ "Pages.Tenants" ]
-          }
-        ]
+        "security": [ { "bearerAuth": [ "Pages.Tenants" ] } ]
       }
     },
     "/api/services/app/Tenant/Delete": {
@@ -431,21 +310,11 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
+          "200": { "description": "Success" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
         },
-        "security": [
-          {
-            "bearerAuth": [ "Pages.Tenants" ]
-          }
-        ]
+        "security": [ { "bearerAuth": [ "Pages.Tenants" ] } ]
       }
     },
     "/api/services/app/Tenant/Get": {
@@ -466,9 +335,7 @@
         "responses": {
           "200": {
             "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/TenantDto"
-            }
+            "schema": { "$ref": "#/definitions/TenantDto" }
           }
         }
       }
@@ -514,9 +381,7 @@
         "responses": {
           "200": {
             "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/PagedResultDto[TenantDto]"
-            }
+            "schema": { "$ref": "#/definitions/PagedResultDto[TenantDto]" }
           }
         }
       }
@@ -532,24 +397,20 @@
             "name": "input",
             "in": "body",
             "required": false,
-            "schema": {
-              "$ref": "#/definitions/TenantDto"
-            }
+            "schema": { "$ref": "#/definitions/TenantDto" }
           }
         ],
         "responses": {
           "200": {
             "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/TenantDto"
-            }
+            "schema": { "$ref": "#/definitions/TenantDto" }
           }
         }
       }
     },
     "/api/TokenAuth/Authenticate": {
       "post": {
-        "tags": [ "TokenAuth : \n            ��Ȩ\n            " ],
+        "tags": [ "TokenAuth : \n            授权\n            " ],
         "operationId": "Authenticate",
         "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
         "produces": [ "text/plain", "application/json", "text/json" ],
@@ -558,24 +419,20 @@
             "name": "model",
             "in": "body",
             "required": false,
-            "schema": {
-              "$ref": "#/definitions/AuthenticateModel"
-            }
+            "schema": { "$ref": "#/definitions/AuthenticateModel" }
           }
         ],
         "responses": {
           "200": {
             "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/AuthenticateResultModel"
-            }
+            "schema": { "$ref": "#/definitions/AuthenticateResultModel" }
           }
         }
       }
     },
     "/api/TokenAuth/GetExternalAuthenticationProviders": {
       "get": {
-        "tags": [ "TokenAuth : \n            ��Ȩ\n            " ],
+        "tags": [ "TokenAuth : \n            授权\n            " ],
         "operationId": "GetExternalAuthenticationProviders",
         "consumes": [],
         "produces": [ "text/plain", "application/json", "text/json" ],
@@ -586,9 +443,7 @@
             "schema": {
               "uniqueItems": false,
               "type": "array",
-              "items": {
-                "$ref": "#/definitions/ExternalLoginProviderInfoModel"
-              }
+              "items": { "$ref": "#/definitions/ExternalLoginProviderInfoModel" }
             }
           }
         }
@@ -596,7 +451,7 @@
     },
     "/api/TokenAuth/ExternalAuthenticate": {
       "post": {
-        "tags": [ "TokenAuth : \n            ��Ȩ\n            " ],
+        "tags": [ "TokenAuth : \n            授权\n            " ],
         "operationId": "ExternalAuthenticate",
         "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
         "produces": [ "text/plain", "application/json", "text/json" ],
@@ -605,24 +460,21 @@
             "name": "model",
             "in": "body",
             "required": false,
-            "schema": {
-              "$ref": "#/definitions/ExternalAuthenticateModel"
-            }
+            "schema": { "$ref": "#/definitions/ExternalAuthenticateModel" }
           }
         ],
         "responses": {
           "200": {
             "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/ExternalAuthenticateResultModel"
-            }
+            "schema": { "$ref": "#/definitions/ExternalAuthenticateResultModel" }
           }
         }
       }
     },
     "/api/services/app/User/Create": {
       "post": {
-        "tags": [ "User : " ],
+        "tags": [ "User : \n            用户应用服务\n            " ],
+        "summary": "创建用户",
         "operationId": "Create",
         "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
         "produces": [ "text/plain", "application/json", "text/json" ],
@@ -630,36 +482,26 @@
           {
             "name": "input",
             "in": "body",
+            "description": "",
             "required": false,
-            "schema": {
-              "$ref": "#/definitions/CreateUserDto"
-            }
+            "schema": { "$ref": "#/definitions/CreateUserDto" }
           }
         ],
         "responses": {
           "200": {
             "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/UserDto"
-            }
+            "schema": { "$ref": "#/definitions/UserDto" }
           },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
         },
-        "security": [
-          {
-            "bearerAuth": [ "Pages.Users" ]
-          }
-        ]
+        "security": [ { "bearerAuth": [ "Pages.Users" ] } ]
       }
     },
     "/api/services/app/User/Update": {
       "put": {
-        "tags": [ "User : " ],
+        "tags": [ "User : \n            用户应用服务\n            " ],
+        "summary": "更新用户",
         "operationId": "Update",
         "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
         "produces": [ "text/plain", "application/json", "text/json" ],
@@ -667,36 +509,26 @@
           {
             "name": "input",
             "in": "body",
+            "description": "",
             "required": false,
-            "schema": {
-              "$ref": "#/definitions/UserDto"
-            }
+            "schema": { "$ref": "#/definitions/UserDto" }
           }
         ],
         "responses": {
           "200": {
             "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/UserDto"
-            }
+            "schema": { "$ref": "#/definitions/UserDto" }
           },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
         },
-        "security": [
-          {
-            "bearerAuth": [ "Pages.Users" ]
-          }
-        ]
+        "security": [ { "bearerAuth": [ "Pages.Users" ] } ]
       }
     },
     "/api/services/app/User/Delete": {
       "delete": {
-        "tags": [ "User : " ],
+        "tags": [ "User : \n            用户应用服务\n            " ],
+        "summary": "删除用户",
         "operationId": "Delete",
         "consumes": [],
         "produces": [],
@@ -710,26 +542,17 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
+          "200": { "description": "Success" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
         },
-        "security": [
-          {
-            "bearerAuth": [ "Pages.Users" ]
-          }
-        ]
+        "security": [ { "bearerAuth": [ "Pages.Users" ] } ]
       }
     },
     "/api/services/app/User/GetRoles": {
       "get": {
-        "tags": [ "User : " ],
+        "tags": [ "User : \n            用户应用服务\n            " ],
+        "summary": "获取角色",
         "operationId": "GetRoles",
         "consumes": [],
         "produces": [ "text/plain", "application/json", "text/json" ],
@@ -737,27 +560,18 @@
         "responses": {
           "200": {
             "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/ListResultDto[RoleDto]"
-            }
+            "schema": { "$ref": "#/definitions/ListResultDto[RoleDto]" }
           },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
         },
-        "security": [
-          {
-            "bearerAuth": [ "Pages.Users" ]
-          }
-        ]
+        "security": [ { "bearerAuth": [ "Pages.Users" ] } ]
       }
     },
     "/api/services/app/User/ChangeLanguage": {
       "post": {
-        "tags": [ "User : " ],
+        "tags": [ "User : \n            用户应用服务\n            " ],
+        "summary": "修改语言",
         "operationId": "ChangeLanguage",
         "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
         "produces": [],
@@ -765,33 +579,23 @@
           {
             "name": "input",
             "in": "body",
+            "description": "",
             "required": false,
-            "schema": {
-              "$ref": "#/definitions/ChangeUserLanguageDto"
-            }
+            "schema": { "$ref": "#/definitions/ChangeUserLanguageDto" }
           }
         ],
         "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
+          "200": { "description": "Success" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
         },
-        "security": [
-          {
-            "bearerAuth": [ "Pages.Users" ]
-          }
-        ]
+        "security": [ { "bearerAuth": [ "Pages.Users" ] } ]
       }
     },
     "/api/services/app/User/ChangePassword": {
       "post": {
-        "tags": [ "User : " ],
+        "tags": [ "User : \n            用户应用服务\n            " ],
+        "summary": "修改密码",
         "operationId": "ChangePassword",
         "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
         "produces": [ "text/plain", "application/json", "text/json" ],
@@ -799,36 +603,25 @@
           {
             "name": "input",
             "in": "body",
+            "description": "",
             "required": false,
-            "schema": {
-              "$ref": "#/definitions/ChangePasswordDto"
-            }
+            "schema": { "$ref": "#/definitions/ChangePasswordDto" }
           }
         ],
         "responses": {
           "200": {
             "description": "Success",
-            "schema": {
-              "type": "boolean"
-            }
+            "schema": { "type": "boolean" }
           },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
         },
-        "security": [
-          {
-            "bearerAuth": [ "Pages.Users" ]
-          }
-        ]
+        "security": [ { "bearerAuth": [ "Pages.Users" ] } ]
       }
     },
     "/api/services/app/User/ResetPassword": {
       "post": {
-        "tags": [ "User : " ],
+        "tags": [ "User : \n            用户应用服务\n            " ],
         "operationId": "ResetPassword",
         "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
         "produces": [ "text/plain", "application/json", "text/json" ],
@@ -837,35 +630,23 @@
             "name": "input",
             "in": "body",
             "required": false,
-            "schema": {
-              "$ref": "#/definitions/ResetPasswordDto"
-            }
+            "schema": { "$ref": "#/definitions/ResetPasswordDto" }
           }
         ],
         "responses": {
           "200": {
             "description": "Success",
-            "schema": {
-              "type": "boolean"
-            }
+            "schema": { "type": "boolean" }
           },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
         },
-        "security": [
-          {
-            "bearerAuth": [ "Pages.Users" ]
-          }
-        ]
+        "security": [ { "bearerAuth": [ "Pages.Users" ] } ]
       }
     },
     "/api/services/app/User/Get": {
       "get": {
-        "tags": [ "User : " ],
+        "tags": [ "User : \n            用户应用服务\n            " ],
         "operationId": "Get",
         "consumes": [],
         "produces": [ "text/plain", "application/json", "text/json" ],
@@ -881,16 +662,14 @@
         "responses": {
           "200": {
             "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/UserDto"
-            }
+            "schema": { "$ref": "#/definitions/UserDto" }
           }
         }
       }
     },
     "/api/services/app/User/GetAll": {
       "get": {
-        "tags": [ "User : " ],
+        "tags": [ "User : \n            用户应用服务\n            " ],
         "operationId": "GetAll",
         "consumes": [],
         "produces": [ "text/plain", "application/json", "text/json" ],
@@ -898,6 +677,7 @@
           {
             "name": "Keyword",
             "in": "query",
+            "description": "关键词",
             "required": false,
             "type": "string"
           },
@@ -929,9 +709,7 @@
         "responses": {
           "200": {
             "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/PagedResultDto[UserDto]"
-            }
+            "schema": { "$ref": "#/definitions/PagedResultDto[UserDto]" }
           }
         }
       }
@@ -992,18 +770,12 @@
           "minLength": 0,
           "type": "string"
         },
-        "captchaResponse": {
-          "type": "string"
-        }
+        "captchaResponse": { "type": "string" }
       }
     },
     "RegisterOutput": {
       "type": "object",
-      "properties": {
-        "canLogin": {
-          "type": "boolean"
-        }
-      }
+      "properties": { "canLogin": { "type": "boolean" } }
     },
     "ChangeUiThemeInput": {
       "required": [ "theme" ],
@@ -1013,6 +785,19 @@
           "maxLength": 32,
           "minLength": 0,
           "type": "string"
+        }
+      }
+    },
+    "PageInput": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "pageSize": {
+          "format": "int32",
+          "type": "integer"
         }
       }
     },
@@ -1030,9 +815,7 @@
           "minLength": 0,
           "type": "string"
         },
-        "normalizedName": {
-          "type": "string"
-        },
+        "normalizedName": { "type": "string" },
         "description": {
           "maxLength": 5000,
           "minLength": 0,
@@ -1041,9 +824,7 @@
         "grantedPermissions": {
           "uniqueItems": false,
           "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "items": { "type": "string" }
         }
       }
     },
@@ -1061,9 +842,7 @@
           "minLength": 0,
           "type": "string"
         },
-        "normalizedName": {
-          "type": "string"
-        },
+        "normalizedName": { "type": "string" },
         "description": {
           "maxLength": 5000,
           "minLength": 0,
@@ -1072,9 +851,7 @@
         "grantedPermissions": {
           "uniqueItems": false,
           "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "items": { "type": "string" }
         },
         "id": {
           "format": "int32",
@@ -1088,27 +865,17 @@
         "items": {
           "uniqueItems": false,
           "type": "array",
-          "items": {
-            "$ref": "#/definitions/RoleListDto"
-          }
+          "items": { "$ref": "#/definitions/RoleListDto" }
         }
       }
     },
     "RoleListDto": {
       "type": "object",
       "properties": {
-        "name": {
-          "type": "string"
-        },
-        "displayName": {
-          "type": "string"
-        },
-        "isStatic": {
-          "type": "boolean"
-        },
-        "isDefault": {
-          "type": "boolean"
-        },
+        "name": { "type": "string" },
+        "displayName": { "type": "string" },
+        "isStatic": { "type": "boolean" },
+        "isDefault": { "type": "boolean" },
         "creationTime": {
           "format": "date-time",
           "type": "string"
@@ -1125,24 +892,16 @@
         "items": {
           "uniqueItems": false,
           "type": "array",
-          "items": {
-            "$ref": "#/definitions/PermissionDto"
-          }
+          "items": { "$ref": "#/definitions/PermissionDto" }
         }
       }
     },
     "PermissionDto": {
       "type": "object",
       "properties": {
-        "name": {
-          "type": "string"
-        },
-        "displayName": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
+        "name": { "type": "string" },
+        "displayName": { "type": "string" },
+        "description": { "type": "string" },
         "id": {
           "format": "int64",
           "type": "integer"
@@ -1152,22 +911,16 @@
     "GetRoleForEditOutput": {
       "type": "object",
       "properties": {
-        "role": {
-          "$ref": "#/definitions/RoleEditDto"
-        },
+        "role": { "$ref": "#/definitions/RoleEditDto" },
         "permissions": {
           "uniqueItems": false,
           "type": "array",
-          "items": {
-            "$ref": "#/definitions/FlatPermissionDto"
-          }
+          "items": { "$ref": "#/definitions/FlatPermissionDto" }
         },
         "grantedPermissionNames": {
           "uniqueItems": false,
           "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "items": { "type": "string" }
         }
       }
     },
@@ -1190,9 +943,7 @@
           "minLength": 0,
           "type": "string"
         },
-        "isStatic": {
-          "type": "boolean"
-        },
+        "isStatic": { "type": "boolean" },
         "id": {
           "format": "int32",
           "type": "integer"
@@ -1202,15 +953,9 @@
     "FlatPermissionDto": {
       "type": "object",
       "properties": {
-        "name": {
-          "type": "string"
-        },
-        "displayName": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        }
+        "name": { "type": "string" },
+        "displayName": { "type": "string" },
+        "description": { "type": "string" }
       }
     },
     "PagedResultDto[RoleDto]": {
@@ -1223,59 +968,39 @@
         "items": {
           "uniqueItems": false,
           "type": "array",
-          "items": {
-            "$ref": "#/definitions/RoleDto"
-          }
+          "items": { "$ref": "#/definitions/RoleDto" }
         }
       }
     },
     "GetCurrentLoginInformationsOutput": {
       "type": "object",
       "properties": {
-        "application": {
-          "$ref": "#/definitions/ApplicationInfoDto"
-        },
-        "user": {
-          "$ref": "#/definitions/UserLoginInfoDto"
-        },
-        "tenant": {
-          "$ref": "#/definitions/TenantLoginInfoDto"
-        }
+        "application": { "$ref": "#/definitions/ApplicationInfoDto" },
+        "user": { "$ref": "#/definitions/UserLoginInfoDto" },
+        "tenant": { "$ref": "#/definitions/TenantLoginInfoDto" }
       }
     },
     "ApplicationInfoDto": {
       "type": "object",
       "properties": {
-        "version": {
-          "type": "string"
-        },
+        "version": { "type": "string" },
         "releaseDate": {
           "format": "date-time",
           "type": "string"
         },
         "features": {
           "type": "object",
-          "additionalProperties": {
-            "type": "boolean"
-          }
+          "additionalProperties": { "type": "boolean" }
         }
       }
     },
     "UserLoginInfoDto": {
       "type": "object",
       "properties": {
-        "name": {
-          "type": "string"
-        },
-        "surname": {
-          "type": "string"
-        },
-        "userName": {
-          "type": "string"
-        },
-        "emailAddress": {
-          "type": "string"
-        },
+        "name": { "type": "string" },
+        "surname": { "type": "string" },
+        "userName": { "type": "string" },
+        "emailAddress": { "type": "string" },
         "id": {
           "format": "int64",
           "type": "integer"
@@ -1285,12 +1010,8 @@
     "TenantLoginInfoDto": {
       "type": "object",
       "properties": {
-        "tenancyName": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
+        "tenancyName": { "type": "string" },
+        "name": { "type": "string" },
         "id": {
           "format": "int32",
           "type": "integer"
@@ -1322,9 +1043,7 @@
           "minLength": 0,
           "type": "string"
         },
-        "isActive": {
-          "type": "boolean"
-        }
+        "isActive": { "type": "boolean" }
       }
     },
     "TenantDto": {
@@ -1342,9 +1061,7 @@
           "minLength": 0,
           "type": "string"
         },
-        "isActive": {
-          "type": "boolean"
-        },
+        "isActive": { "type": "boolean" },
         "id": {
           "format": "int32",
           "type": "integer"
@@ -1361,9 +1078,7 @@
         "items": {
           "uniqueItems": false,
           "type": "array",
-          "items": {
-            "$ref": "#/definitions/TenantDto"
-          }
+          "items": { "$ref": "#/definitions/TenantDto" }
         }
       }
     },
@@ -1381,20 +1096,14 @@
           "minLength": 0,
           "type": "string"
         },
-        "rememberClient": {
-          "type": "boolean"
-        }
+        "rememberClient": { "type": "boolean" }
       }
     },
     "AuthenticateResultModel": {
       "type": "object",
       "properties": {
-        "accessToken": {
-          "type": "string"
-        },
-        "encryptedAccessToken": {
-          "type": "string"
-        },
+        "accessToken": { "type": "string" },
+        "encryptedAccessToken": { "type": "string" },
         "expireInSeconds": {
           "format": "int32",
           "type": "integer"
@@ -1408,12 +1117,8 @@
     "ExternalLoginProviderInfoModel": {
       "type": "object",
       "properties": {
-        "name": {
-          "type": "string"
-        },
-        "clientId": {
-          "type": "string"
-        }
+        "name": { "type": "string" },
+        "clientId": { "type": "string" }
       }
     },
     "ExternalAuthenticateModel": {
@@ -1430,27 +1135,19 @@
           "minLength": 0,
           "type": "string"
         },
-        "providerAccessCode": {
-          "type": "string"
-        }
+        "providerAccessCode": { "type": "string" }
       }
     },
     "ExternalAuthenticateResultModel": {
       "type": "object",
       "properties": {
-        "accessToken": {
-          "type": "string"
-        },
-        "encryptedAccessToken": {
-          "type": "string"
-        },
+        "accessToken": { "type": "string" },
+        "encryptedAccessToken": { "type": "string" },
         "expireInSeconds": {
           "format": "int32",
           "type": "integer"
         },
-        "waitingForActivation": {
-          "type": "boolean"
-        }
+        "waitingForActivation": { "type": "boolean" }
       }
     },
     "CreateUserDto": {
@@ -1458,16 +1155,19 @@
       "type": "object",
       "properties": {
         "userName": {
+          "description": "用户名",
           "maxLength": 256,
           "minLength": 0,
           "type": "string"
         },
         "emailAddress": {
+          "description": "邮箱",
           "maxLength": 256,
           "minLength": 0,
           "type": "string"
         },
         "isActive": {
+          "description": "是否激活",
           "type": "boolean"
         },
         "nickName": {
@@ -1476,22 +1176,24 @@
           "type": "string"
         },
         "realName": {
+          "description": "真实姓名",
           "maxLength": 10,
           "minLength": 0,
           "type": "string"
         },
         "phoneNumber": {
+          "description": "手机号",
           "pattern": "^1(3|4|5|6|7|8|9)\\d{9}$",
           "type": "string"
         },
         "roleNames": {
+          "description": "角色",
           "uniqueItems": false,
           "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "items": { "type": "string" }
         },
         "password": {
+          "description": "密码",
           "maxLength": 32,
           "minLength": 0,
           "type": "string"
@@ -1503,35 +1205,52 @@
       "type": "object",
       "properties": {
         "userName": {
+          "description": "用户名",
           "maxLength": 256,
           "minLength": 0,
           "type": "string"
         },
+        "nickName": {
+          "description": "昵称",
+          "maxLength": 10,
+          "minLength": 0,
+          "type": "string"
+        },
+        "realName": {
+          "description": "真实姓名",
+          "maxLength": 10,
+          "minLength": 0,
+          "type": "string"
+        },
+        "phoneNumber": {
+          "description": "手机号",
+          "type": "string"
+        },
         "emailAddress": {
+          "description": "邮箱",
           "maxLength": 256,
           "minLength": 0,
           "type": "string"
         },
         "isActive": {
+          "description": "是否激活",
           "type": "boolean"
-        },
-        "fullName": {
-          "type": "string"
         },
         "lastLoginTime": {
           "format": "date-time",
+          "description": "最后登录时间",
           "type": "string"
         },
         "creationTime": {
           "format": "date-time",
+          "description": "创建时间",
           "type": "string"
         },
         "roleNames": {
+          "description": "角色名",
           "uniqueItems": false,
           "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "items": { "type": "string" }
         },
         "id": {
           "format": "int64",
@@ -1545,47 +1264,33 @@
         "items": {
           "uniqueItems": false,
           "type": "array",
-          "items": {
-            "$ref": "#/definitions/RoleDto"
-          }
+          "items": { "$ref": "#/definitions/RoleDto" }
         }
       }
     },
     "ChangeUserLanguageDto": {
       "required": [ "languageName" ],
       "type": "object",
-      "properties": {
-        "languageName": {
-          "type": "string"
-        }
-      }
+      "properties": { "languageName": { "type": "string" } }
     },
     "ChangePasswordDto": {
       "required": [ "currentPassword", "newPassword" ],
       "type": "object",
       "properties": {
-        "currentPassword": {
-          "type": "string"
-        },
-        "newPassword": {
-          "type": "string"
-        }
+        "currentPassword": { "type": "string" },
+        "newPassword": { "type": "string" }
       }
     },
     "ResetPasswordDto": {
       "required": [ "adminPassword", "userId", "newPassword" ],
       "type": "object",
       "properties": {
-        "adminPassword": {
-          "type": "string"
-        },
+        "adminPassword": { "type": "string" },
         "userId": {
           "format": "int64",
           "type": "integer"
         },
-        "newPassword": {
-          "type": "string"
-        }
+        "newPassword": { "type": "string" }
       }
     },
     "PagedResultDto[UserDto]": {
@@ -1598,9 +1303,7 @@
         "items": {
           "uniqueItems": false,
           "type": "array",
-          "items": {
-            "$ref": "#/definitions/UserDto"
-          }
+          "items": { "$ref": "#/definitions/UserDto" }
         }
       }
     }
@@ -1608,9 +1311,9 @@
   "securityDefinitions": {
     "BearerAuth": {
       "name": "Authorization",
-      "in": "http����ͷ",
+      "in": "http请求头",
       "type": "apiKey",
-      "description": "������access_token. ����: \"Authorization: Bearer {token}\" ע��ո�!"
+      "description": "请输入access_token. 例如: \"Authorization: Bearer {token}\" 注意空格!"
     }
   }
 }

@@ -1,8 +1,11 @@
 using System;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Shouldly;
+using ToShowDoc.Core.ApiClient;
+using ToShowDoc.Core.Entity;
 using ToShowDoc.Core.Parser;
 using Xunit;
 
@@ -11,9 +14,16 @@ namespace ToShowDocs.Core.Tests
     public class SwaggerParser_Tests
     {
         private readonly SwaggerDocument _document;
+        private readonly ShowDocEntity _showdoc;
         public SwaggerParser_Tests()
         {
-            var str = File.ReadAllText(AppContext.BaseDirectory + "swaggerDocs.json");
+            _showdoc = new ShowDocEntity()
+            {
+                AppKey = "11cd348f2ee6303cfd0d17c3fe047bb91616002817",
+                AppToken = "9b7bbe84c1a1fc8280644031195018f5189849543",
+                ShowDocUrl = "https://www.showdoc.cc/server/api/item/updateByApi"
+            };
+            var str = File.ReadAllText(AppContext.BaseDirectory + "swaggerDocs.json", Encoding.UTF8);
             _document = SwaggerParser.ParseString(str);
         }
 
@@ -31,9 +41,6 @@ namespace ToShowDocs.Core.Tests
 
             _document.Definitions["IsTenantAvailableOutput"].Properties["state"].Enum.Length.ShouldBe(3);
             _document.Definitions["IsTenantAvailableOutput"].Properties["state"].Type.ShouldBe("integer");
-
-
-            var request= _document.ToShowDocRequest();
         }
 
         [Fact]
@@ -58,6 +65,19 @@ namespace ToShowDocs.Core.Tests
             string @ref = _document.Paths["/api/TokenAuth/Authenticate"].Post.Responses["Success"].Schema.Ref;
             des.ShouldBe("Success");
             @ref.ShouldBe("#/definitions/AuthenticateResultModel");
+        }
+
+
+        [Fact]
+        public async Task SwaggerToShowdoc_Test()
+        {
+            var request = _document.ToShowDocRequest();
+            request.Count.ShouldBe(28);
+
+            foreach (var item in request)
+            {
+                var res = await ShowDocClient.UpdateByApi(_showdoc, item);
+            }
         }
     }
 }
