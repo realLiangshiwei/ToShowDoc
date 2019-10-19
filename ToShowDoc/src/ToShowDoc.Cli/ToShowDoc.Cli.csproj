@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+
+    <PackAsTool>true</PackAsTool>
+    <PackageOutputPath>./nupkg</PackageOutputPath>
+    <PackageId>ToShowDoc</PackageId>
+    <Authors>liangshiwei</Authors>
+    <Product>ToShowDoc</Product>
+    <AssemblyName>ToShowDoc</AssemblyName>
+    <RootNamespace>ToShowDoc</RootNamespace>
+    <Version>2.0</Version>
+    <Company>personal</Company>
+    <Description>Automatically generate documents to showdoc !
+2.0 version support net core 2.x !</Description>
+    <PackageProjectUrl>https://github.com/liangshiw/ToShowDoc</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/liangshiw/ToShowDoc</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ToShowdoc.Core\ToShowDoc.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.4.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="nupkg\" />
+  </ItemGroup>
+
+</Project>

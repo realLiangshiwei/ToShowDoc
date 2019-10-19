@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BookStore.Core2.x</name>
+    </assembly>
+    <members>
+        <member name="T:BookStore.Core2.x.Controllers.BookStoreController">
+            <summary>
+            图书商店
+            </summary>
+        </member>
+        <member name="M:BookStore.Core2.x.Controllers.BookStoreController.GetAll">
+            <summary>
+            获取所有图书
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BookStore.Core2.x.Controllers.BookStoreController.Get(System.String)">
+            <summary>
+            获取指定名称图书
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookStore.Core2.x.Controllers.BookStoreController.Add(BookStore.Core2.x.Models.Book)">
+            <summary>
+            添加图书
+            </summary>
+            <param name="book"></param>
+        </member>
+        <member name="T:BookStore.Core2.x.Models.Book">
+            <summary>
+            图书
+            </summary>
+        </member>
+        <member name="P:BookStore.Core2.x.Models.Book.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BookStore.Core2.x.Models.Book.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:BookStore.Core2.x.Models.Book.Price">
+            <summary>
+            价格
+            </summary>
+        </member>
+        <member name="P:BookStore.Core2.x.Models.Book.Inventory">
+            <summary>
+            库存
+            </summary>
+        </member>
+        <member name="P:BookStore.Core2.x.Models.Book.Author">
+            <summary>
+            作者
+            </summary>
+        </member>
+        <member name="T:BookStore.Core2.x.Models.Author">
+            <summary>
+            作者
+            </summary>
+        </member>
+        <member name="P:BookStore.Core2.x.Models.Author.Name">
+            <summary>
+            作者姓名
+            </summary>
+        </member>
+        <member name="P:BookStore.Core2.x.Models.Author.Age">
+            <summary>
+            年龄 
+            </summary>
+        </member>
+    </members>
+</doc>

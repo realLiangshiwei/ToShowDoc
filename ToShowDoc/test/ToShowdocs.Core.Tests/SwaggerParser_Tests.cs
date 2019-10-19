@@ -19,8 +19,8 @@ namespace ToShowDocs.Core.Tests
         {
             _showdoc = new ShowDocEntity()
             {
-                AppKey = "11cd348f2ee6303cfd0d17c3fe047bb91616002817",
-                AppToken = "9b7bbe84c1a1fc8280644031195018f5189849543",
+                AppKey = "48be8cfc2f1aa03dfb97fa5170695ad6414239409",
+                AppToken = "7151e44fddf593cc1457b8b91c564cac724696720",
                 ShowDocUrl = "https://www.showdoc.cc/server/api/item/updateByApi"
             };
             var str = File.ReadAllText(AppContext.BaseDirectory + "swaggerDocs.json", Encoding.UTF8);
