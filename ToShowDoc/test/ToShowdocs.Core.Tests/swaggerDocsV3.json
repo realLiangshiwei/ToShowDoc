@@ -1,0 +1,183 @@
+﻿{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "BookStore API",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/BookStore": {
+      "get": {
+        "tags": [
+          "BookStore"
+        ],
+        "summary": "获取所有图书",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Book"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Book"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Book"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "BookStore"
+        ],
+        "summary": "添加图书",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Book"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Book"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Book"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/BookStore/{name}": {
+      "get": {
+        "tags": [
+          "BookStore"
+        ],
+        "summary": "获取指定名称图书",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Book"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Book"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Book"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Author": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "作者姓名",
+            "nullable": true
+          },
+          "age": {
+            "type": "integer",
+            "description": "年龄",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "作者"
+      },
+      "Book": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 10,
+            "minLength": 0,
+            "type": "string",
+            "description": "名称",
+            "nullable": true
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "price": {
+            "type": "number",
+            "description": "价格",
+            "format": "double"
+          },
+          "inventory": {
+            "maximum": 100,
+            "minimum": 1,
+            "type": "integer",
+            "description": "库存",
+            "format": "int32"
+          },
+          "author": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Author"
+            },
+            "description": "作者",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "图书"
+      }
+    }
+  }
+}

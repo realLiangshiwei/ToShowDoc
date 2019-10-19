@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>G:\Code\my\ToShowDoc\ToShowDoc\BookStore.Core2.x\BookStore.Core2.x.xml</DocumentationFile>
+    <DocumentationFile>G:\Code\my\ToShowDoc\ToShowDoc\samples\BookStore.Core2.x\BookStore.Core2.x.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

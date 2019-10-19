@@ -18,18 +18,20 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\ToShowdoc.Core\ToShowDoc.Core.csproj" />
-    <ProjectReference Include="..\..\ToShowdoc.Core\ToShowDoc.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <None Update="MdTemplate.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="swaggerDocs.json">
+    <None Update="swaggerDocsV2.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="swaggerDocsV3.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
-  <ProjectExtensions><VisualStudio><UserProperties swaggerdocs_1json__JsonSchema="http://json.schemastore.org/azure-iot-edge-deployment-template-2.0" /></VisualStudio></ProjectExtensions>
+  <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
 
 </Project>

@@ -1,4 +1,5 @@
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -7,24 +8,25 @@ using Shouldly;
 using ToShowDoc.Core.ApiClient;
 using ToShowDoc.Core.Entity;
 using ToShowDoc.Core.Parser;
+using ToShowDoc.Core.Parser.Core2x;
 using Xunit;
 
 namespace ToShowDocs.Core.Tests
 {
-    public class SwaggerParser_Tests
+    public class SwaggerParserV2_Tests
     {
-        private readonly SwaggerDocument _document;
+        private readonly SwaggerDocumentCoreV2 _document;
         private readonly ShowDocEntity _showdoc;
-        public SwaggerParser_Tests()
+        public SwaggerParserV2_Tests()
         {
             _showdoc = new ShowDocEntity()
             {
-                AppKey = "48be8cfc2f1aa03dfb97fa5170695ad6414239409",
-                AppToken = "7151e44fddf593cc1457b8b91c564cac724696720",
+                AppKey = "a338fb0d83c6f4b660bc2706b92e89451844587564",
+                AppToken = "e1511a84db06d25150377970f328e9f7572510835",
                 ShowDocUrl = "https://www.showdoc.cc/server/api/item/updateByApi"
             };
-            var str = File.ReadAllText(AppContext.BaseDirectory + "swaggerDocs.json", Encoding.UTF8);
-            _document = SwaggerParser.ParseString(str);
+            var str = File.ReadAllText(AppContext.BaseDirectory + "swaggerDocsV2.json", Encoding.UTF8);
+            _document = SwaggerParser.ParseString(str) as SwaggerDocumentCoreV2;
         }
 
         [Fact]
@@ -51,8 +53,7 @@ namespace ToShowDocs.Core.Tests
             _document.Paths["/api/TokenAuth/Authenticate"].Put.ShouldBeNull();
 
             _document.Paths["/api/TokenAuth/Authenticate"].Post.Consumes.Length.ShouldBe(4);
-            _document.Paths["/api/TokenAuth/Authenticate"].Post.OperationId.ShouldBe("Authenticate");
-
+            
             _document.Paths["/api/TokenAuth/Authenticate"].Post.Parameters.Count.ShouldBe(1);
 
             _document.Paths["/api/TokenAuth/Authenticate"].Post.Parameters.First().In.ShouldBe("body");
@@ -79,5 +80,6 @@ namespace ToShowDocs.Core.Tests
                 var res = await ShowDocClient.UpdateByApi(_showdoc, item);
             }
         }
+
     }
 }

@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToShowDocs.Core.Tests", "te
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{D90BEDDE-9B35-4703-B0B1-443535A2B761}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore.Core3.x", "samples\BookStore\BookStore.Core3.x.csproj", "{61C62FB6-F188-4240-A4C6-8A3C8B032735}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore.Core3.x", "samples\BookStore.Core3.x\BookStore.Core3.x.csproj", "{61C62FB6-F188-4240-A4C6-8A3C8B032735}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore.Core2.x", "samples\BookStore.Core2.x\BookStore.Core2.x.csproj", "{EE0FECB5-AA93-44DA-8FE3-6C2CC8D6761A}"
 EndProject

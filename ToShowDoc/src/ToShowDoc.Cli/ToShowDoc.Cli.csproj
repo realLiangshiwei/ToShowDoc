@@ -11,13 +11,13 @@
     <Product>ToShowDoc</Product>
     <AssemblyName>ToShowDoc</AssemblyName>
     <RootNamespace>ToShowDoc</RootNamespace>
-    <Version>2.0</Version>
+    <Version>3.0</Version>
     <Company>personal</Company>
-    <Description>Automatically generate documents to showdoc !
-2.0 version support net core 2.x !</Description>
+    <Description>Automatically generate documents to showdoc !</Description>
     <PackageProjectUrl>https://github.com/liangshiw/ToShowDoc</PackageProjectUrl>
     <RepositoryUrl>https://github.com/liangshiw/ToShowDoc</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <PackageIconUrl>https://raw.githubusercontent.com/liangshiw/ToShowDoc/master/ToShowDoc/src/logo.png</PackageIconUrl>
 
   </PropertyGroup>
 
