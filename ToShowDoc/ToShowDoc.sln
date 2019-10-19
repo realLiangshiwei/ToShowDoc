@@ -4,9 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FEDBEDB9-6160-4A4B-A152-14B9072D6ED7}"
-	ProjectSection(SolutionItems) = preProject
-		C:\Users\Deawb\Desktop\logo.png = C:\Users\Deawb\Desktop\logo.png
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{AB8FD14D-A409-493F-9DA0-AA0AC713D5C7}"
 EndProject
