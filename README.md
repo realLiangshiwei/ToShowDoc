@@ -7,7 +7,11 @@
 [![NuGet](https://img.shields.io/nuget/v/ToShowDoc.svg)](https://www.nuget.org/packages/ToShowDoc/)
 [![NuGet](https://img.shields.io/nuget/dt/ToShowDoc.svg)](https://www.nuget.org/packages/ToShowDoc/)
 
-### commands
+## install
+
+`dotnet tool install -g toshowdoc`
+
+## commands
 
 ```shell
   add        add project
@@ -49,7 +53,7 @@ Options:
   -sdu|--ShowDocUrl     ShowDocUrl Name
 ```
 
-### del
+### list
 
 ```shell
 show all project
@@ -58,6 +62,18 @@ Usage: ToShowDoc list [options]
 
 Options:
   -h|--help  Show help information
+```
+
+### del
+
+```shell
+delete project
+
+Usage: ToShowDoc del [options]
+
+Options:
+  -h|--help  Show help information
+  -n|--name  Project Name
 ```
 
 ### sync
